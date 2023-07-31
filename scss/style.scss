@@ -1,0 +1,146 @@
+// FONTS
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:regular,500,600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+* img {
+    max-width: 100%;
+}
+
+// VAR
+:root {
+    --bg-color: #121B25;
+    --accent-color: #1AA090; 
+    --text-color: #d6d6d6;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: var(--bg-color);
+}
+
+// for every class with end __container
+[class*="__container"] {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+// Snippet
+/*------------------------Header------------------------*/
+
+.header {
+    padding: 40px 0;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__logo {
+        max-width: 200px;
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+
+        gap: 74px;
+    }
+
+    &__menu {
+
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    &__btn {
+        padding: 11px 20px;
+        color: #FFF;
+        border: 2px solid var(--accent-color);
+        background-color: transparent;
+        transition: background-color .2s;
+        cursor: pointer;
+    }
+}
+
+.menu {
+    &__body {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+        font-weight: 500;
+        font-size: 16px;
+
+        text-transform: capitalize;
+
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color .2s;
+        position: relative;
+        // NEED SNIPPET
+        &:before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            background-color: var(--accent-color);
+            height: 3px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .2s;
+        }
+
+        @media(any-hover: hover) {
+            &:hover {
+                color: #FFF;
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+
+.login {
+    // NEED SNIPPET = hv
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: var(--accent-color);
+        }
+    }
+}
+
+.register {
+    background-color: var(--accent-color);
+    @media (any-hover: hover) {
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
