@@ -117,6 +117,7 @@ body {
         transition: left 0.2s ease;
         &._active {
             left: 0;
+            z-index: 5;
         }
     }
 
@@ -210,6 +211,7 @@ body {
                 }
             }
         }
+
         @media (max-width: 992px) {
             line-height: 50px;
             font-size: 30px;
@@ -218,12 +220,14 @@ body {
 }
 
 .login {
+
     // NEED SNIPPET = hv
     @media (any-hover: hover) {
         &:hover {
             background-color: var(--accent-color);
         }
     }
+
     @media (max-width: 425px) {
         display: none;
     }
@@ -231,6 +235,7 @@ body {
 
 .register {
     background-color: var(--accent-color);
+
     @media (any-hover: hover) {
         &:hover {
             background-color: transparent;
@@ -246,21 +251,34 @@ body {
 .page {
 
 }
+
 .hero {
-        margin-top: clamp(1.875rem, 1.057rem + 4.09vw, 4.688rem);
+        margin-top: clamp(1.25rem, 0.25rem + 5vw, 4.688rem);
+        // hero-deco
+        .hero-deco {
+            position: absolute;
+            bottom: -240px;
+            right: 0;
+            z-index: -1;
+        }
+
 		// .hero__container
 
 		&__container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @media (max-width: 992px) {
+                flex-direction: column;
+                align-items: center;
+            }
 		}
 
 		// .hero__content
 
 		&__content {
             flex: 0 0 calc(700px / 1420px * 100%);
-            padding-bottom: 160px;
+            padding-bottom: 20px;
 		}
 
 		// .hero__title
@@ -286,12 +304,19 @@ body {
             background-color: #fff;
             margin-top: 60px;
             position: absolute;
+            @media (max-width: 992px) {
+                width: 100%;
+                position: static;
+            }
 		}
 
 		// .hero__img
 
 		&__img {
             flex: 0 0 calc(700px / 1420px * 100%);
+            @media (min-width: 768px) and (max-width: 992px) {
+                display: none;
+            }
 		}
 }
 
@@ -301,6 +326,15 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 165px;
     color: #000;
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 5px;
+        height: auto;
+    }
+    @media (max-width: 475px) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
     // .filter__block
 
     &__block {
@@ -324,11 +358,20 @@ body {
             font-size: 24px;
             text-transform: capitalize;
             color: #FFF;
+            padding: 10px;
+            &:active {
+                background-color: #15786C;
+            }
+        }
+        @media (max-width: 576px) and (min-width: 475px) {
+            grid-column: 1/4;
         }
     }
 }
 .block-filter {
     position: relative;
+    cursor: pointer;
+    user-select: none;
     // .block-filter__button
 
     &__button {
@@ -360,6 +403,10 @@ body {
         width: 10px;
         height: 7px;
         background: url(../img/arrow.svg) center bottom no-repeat;
+        transition: transform .2s;
+        &._active {
+            transform: rotate(180deg);
+        }
     }
 
     // .block-filter__value
@@ -375,18 +422,41 @@ body {
 
     &__dropdown {
         position: absolute;
+        z-index: 3;
         top: 100%;
         left: 0;
         right: 0;
         background-color: #FFF;
+        border-radius: 5px;
+        overflow: hidden;
         opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: all .2s ease;
+        box-shadow: 0 0 1px 2px #000;
+        &._active{
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+            transform: translateY(5px);
+        }
     }
 
     // .block-filter__item
 
     &__item {
+        padding: 10px;
+        transition: background-color .2s;
+        text-transform: capitalize;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: #adadad;
+            }
+        }
     }
 }
+
+/*------------------------/Filter---------------------------*/
 
 
 
