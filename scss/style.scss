@@ -40,6 +40,14 @@ body {
 }
 /* __________________________General_______________________ */
 
+.title {
+    font-weight: 600;
+    font-size: clamp(1.875rem, 1.548rem + 1.64vw, 3rem);
+    line-height: 1.26;
+
+    color: #FFF;
+}
+
 .text {
     font-weight: 400;
     font-size: 18px;
@@ -48,7 +56,7 @@ body {
     color: var(--text-color);
 }
 
-/* __________________________General_______________________ */
+/* __________________________/General_______________________ */
 
 
 // Snippet
@@ -254,12 +262,17 @@ body {
 
 .hero {
         margin-top: clamp(1.25rem, 0.25rem + 5vw, 4.688rem);
+        padding-bottom: clamp(1.25rem, -0.023rem + 6.36vw, 5.625rem);
+        position: relative;
         // hero-deco
         .hero-deco {
             position: absolute;
-            bottom: -240px;
+            bottom: -150px;
             right: 0;
             z-index: -1;
+            @media (max-width: 576px) {
+                height: 300px;
+            }
         }
 
 		// .hero__container
@@ -459,6 +472,48 @@ body {
 /*------------------------/Filter---------------------------*/
 
 
-
-
 /*------------------------/Hero---------------------------*/
+
+
+/*------------------------Featured---------------------------*/
+
+.featured {
+    padding-top: clamp(1.25rem, -0.023rem + 15vw, 5.625rem);
+    // .featured__container
+
+    &__container {
+    }
+
+    // .featured__title
+
+    &__title {
+
+    }
+
+    // .featured__box
+
+    &__box {
+        margin-top: clamp(1.875rem, 1.42rem + 2.27vw, 3.438rem);
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        align-items: center;
+        overflow: auto;
+    }
+
+    // .featured__item
+
+    &__item {
+        flex: 0 0 auto;
+    }
+
+    // .featured__img
+
+    &__img {
+    }
+}
+.title {
+}
+
+
+/*------------------------/Featured---------------------------*/
