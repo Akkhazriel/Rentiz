@@ -33,13 +33,13 @@ if(filter) {
 
 // SLIDER 
 
-const swiper = new Swiper('.popular-slider', {
+const popularSlider = new Swiper('.popular-slider', {
     spaceBetween: 20,
     slidesPerView: 1,
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.popular-slider-next',
+      prevEl: '.popular-slider-prev',
     },
 
     breakpoints: {
@@ -53,3 +53,30 @@ const swiper = new Swiper('.popular-slider', {
         }
       }
 });
+
+const reviewsSlider = new Swiper('.slider-reviews', {
+    spaceBetween: 20,
+    slidesPerView: 1,
+    autoHeight: true,
+    // Navigation arrows
+    navigation: {
+      nextEl: '.slider-reviews-next',
+      prevEl: '.slider-reviews-prev',
+    },
+});
+
+// GALLERY
+
+const galleryItems = document.querySelectorAll(".gallery__item");
+
+if (galleryItems.length > 0) {
+    galleryItems.forEach(item => {
+        new Swiper(item, {
+            slidersPerView: 1,
+            autoplay: {
+                delay: 3000,
+            },
+            effect: 'fade',
+        })
+    })
+}
